@@ -34,3 +34,8 @@ db.Customers.find({isFrequentBuyer:true}).sort({age:-1}); - use 1 for ascending 
 ### Update Documents
 
 db.Customers.update({_id: ObjectId('6563adbcd29922b97d900aa3')}, {$set:{name:"Bebe"}}); - modified name
+db.Customers.update({age:{$lt:30}}, {$set:{isFrequentBuyer:true}}, {multi:true}); - update multiple objects
+
+
+### Delete Documents
+
