@@ -39,3 +39,5 @@ db.Customers.update({age:{$lt:30}}, {$set:{isFrequentBuyer:true}}, {multi:true})
 
 ### Delete Documents
 
+db.Customers.remove({_id: ObjectId('6563a158d29922b97d900a98')}); - delete a document
+
