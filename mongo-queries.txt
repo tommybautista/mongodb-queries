@@ -11,7 +11,7 @@ db.Something.drop(); - deletes a colledtion
 ### Insert and List
 
 db.Customers.insertOne({name: "Anna", age: 32, isFrequentBuyer: false}); - insert document
-db.Customers.insertMany([{name: "Tom", age: 40, isFrequentBuyer: true}, {name: "Joan", age: 42, isFrequentBuyer: true}]) - insert bulk items
+db.Customers.insertMany([{name: "Motty", age: 18, isFrequentBuyer: true}, {name: "Naoj", age: 24, isFrequentBuyer: false}]); - insert bulk items
 db.Customers.find({}); - show all with empty filter {}
 db.Customers.find({},{name:1});
 db.Customers.find({}).count(); - count
@@ -30,3 +30,7 @@ db.Customers.find({age:{$gt:35}, isFrequentBuyer: true}); - multiple filters
 
 Sorting:
 db.Customers.find({isFrequentBuyer:true}).sort({age:-1}); - use 1 for ascending and -1 for descending
+
+### Update Documents
+
+db.Customers.update({_id: ObjectId('6563adbcd29922b97d900aa3')}, {$set:{name:"Bebe"}}); - modified name
