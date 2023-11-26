@@ -1,0 +1,32 @@
+### Databases and Collections
+
+show dbs - show all dbs
+db - show current db
+use SomeDb - create and switch to db
+db.createCollection("Something"); - create a collection in the db
+show collections - displays the collections in the db
+db.dropDatabase() - deletes the database
+db.Something.drop(); - deletes a colledtion
+
+### Insert and List
+
+db.Customers.insertOne({name: "Anna", age: 32, isFrequentBuyer: false}); - insert document
+db.Customers.insertMany([{name: "Tom", age: 40, isFrequentBuyer: true}, {name: "Joan", age: 42, isFrequentBuyer: true}]) - insert bulk items
+db.Customers.find({}); - show all with empty filter {}
+db.Customers.find({},{name:1});
+db.Customers.find({}).count(); - count
+
+### Filtering:
+
+Simple
+db.Customers.find({name: "Anna"});
+db.Customers.find({_id: ObjectId('6563a158d29922b97d900a98')});
+
+Complex
+db.Customers.find({age: {$lt: 30}}); - filtering age less than _age
+db.Customers.find({name: /a/}); - filtering name that contains a letter or pattern
+db.Customers.find({name: /^To/}); - filtering name with uppercase starts at 'T'
+db.Customers.find({age:{$gt:35}, isFrequentBuyer: true}); - multiple filters
+
+Sorting:
+db.Customers.find({isFrequentBuyer:true}).sort({age:-1}); - use 1 for ascending and -1 for descending
